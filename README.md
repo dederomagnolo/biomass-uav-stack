@@ -56,15 +56,23 @@ Edit `full_sim.launch` to point to your world name at tag:
 
 ## Use Docker (Windows)
 
-1. Setup your Docker Desktop and Use WSL
+### 1. Docker setup
 
-2. From root build `biomass-uav-stack` image. It take some time, go and grab a coffee.
+You can do your favorite config if you want. Suggestion:
+
+- Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
+
+- [Configure your WSL](https://docs.docker.com/desktop/features/wsl)
+
+### 2. Building image
+
+First make sure the repo has been cloned under your WSL files. From repo root build `biomass-uav-stack` image. It take some time, go and grab a coffee.
 
 ``
 docker build -t biomass-uav-stack .
 ``
 
-3. Start your container
+### 3. Start your container
 
 ```
 docker run -it --rm \
@@ -78,16 +86,13 @@ docker run -it --rm \
   biomass-uav-stack
 ```
 
-4. You will land on `biomass-uav-ws` folder. This folder contains the content from `workspace` repo folder.
+### 4. Building
 
-5. Building
-
-### 2. Building
-
+- You will land on `biomass-uav-ws` folder. This folder contains the content from `workspace` repo folder.
 - From root run `catkin build`
 
 - Set your build source: `source devel/setup.bash`
 
-### 3. Test Installation
+### 5. Test Installation
 
 `roslaunch gazebo_utils full_sim.launch`
