@@ -96,3 +96,25 @@ docker run -it --rm \
 ### 5. Test Installation
 
 `roslaunch gazebo_utils full_sim.launch`
+
+## Run simulations using MRS only
+
+from root: `./tmux/one_drone/start.sh`
+
+### Run simple launch file to test/edit
+
+Set gazebo_resources path before run
+
+`export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$(rospack find gazebo_resources)/models`
+
+`roslaunch mrs_uav_gazebo_simulation simulation.launch world_file:='$(find gazebo_resources)/worlds/cerrado_2.world'`
+
+### Create new world
+
+- worlds should be added to `gazebo_resources/worlds`
+
+- models should be added to `gazebo_resources/models`
+
+- functional template file with initial settings is available for insert models directly: `template.world`
+
+

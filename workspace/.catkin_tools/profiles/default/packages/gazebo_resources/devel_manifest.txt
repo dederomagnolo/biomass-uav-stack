@@ -1,0 +1,4 @@
+gazebo_resources
+/root/biomass-uav-ws/devel/.private/gazebo_resources/lib/pkgconfig/gazebo_resources.pc /root/biomass-uav-ws/devel/lib/pkgconfig/gazebo_resources.pc
+/root/biomass-uav-ws/devel/.private/gazebo_resources/share/gazebo_resources/cmake/gazebo_resourcesConfig-version.cmake /root/biomass-uav-ws/devel/share/gazebo_resources/cmake/gazebo_resourcesConfig-version.cmake
+/root/biomass-uav-ws/devel/.private/gazebo_resources/share/gazebo_resources/cmake/gazebo_resourcesConfig.cmake /root/biomass-uav-ws/devel/share/gazebo_resources/cmake/gazebo_resourcesConfig.cmake
