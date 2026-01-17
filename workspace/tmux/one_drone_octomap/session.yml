@@ -5,8 +5,8 @@ socket_name: mrs
 attach: false
 tmux_options: -f /etc/ctu-mrs/tmux.conf
 # you can modify these
-pre_window: source /root/biomass-uav-ws/devel/setup.bash; export UAV_NAME=uav1; export RUN_TYPE=simulation; export UAV_TYPE=f450
-startup_window: status
+pre_window: export UAV_NAME=uav1; export RUN_TYPE=simulation; export UAV_TYPE=f450
+startup_window: core
 windows:
   - roscore:
       layout: tiled
@@ -20,12 +20,17 @@ windows:
         - waitForRos; roslaunch mrs_uav_gazebo_simulation simulation.launch world_file:='$(find gazebo_resources)/worlds/mrs-test.world'
         # below is to import default worlds from ros MRS folder installed
         # - waitForRos; roslaunch mrs_uav_gazebo_simulation simulation.launch world_name:=grass_plane gui:=true
+        # - waitForGazebo; rosservice call /mrs_drone_spawner/spawn "1 --$UAV_TYPE"
         - waitForGazebo; rosservice call /mrs_drone_spawner/spawn "1 --$UAV_TYPE --enable-rangefinder --enable-ouster model:=OS0-128 use_gpu:=True horizontal_samples:=128 update_rate:=10"
         - waitForControl; gz camera -c gzclient_camera -f $UAV_NAME; history -s gz camera -c gzclient_camera -f $UAV_NAME
   - status:
       layout: tiled
       panes:
         - waitForHw; roslaunch mrs_uav_status status.launch
+  - spawn:
+      layout: tiled
+      panes:
+        - waitForGazebo; rosservice call /mrs_drone_spawner/spawn "1 $UAV_TYPE --pos 0 0 1 0 --enable-rangefinder --enable-ouster model:=OS0-128 use_gpu:=True"
   - hw_api:
       layout: tiled
       panes:
@@ -38,6 +43,15 @@ windows:
           custom_config:=./config/custom_config.yaml
           world_config:=./config/world_config.yaml
           network_config:=./config/network_config.yaml
+  - mapplan:
+      layout: tiled
+      panes:
+        - waitForHw; roslaunch mrs_octomap_mapping_planning mapplan.launch
+          config_octomap_server:=./config/octomap_server.yaml
+          config_octomap_planner:=./config/octomap_planner.yaml
+          config_pcl_filter_ouster:=./config/ouster_filter_mapping.yaml
+          config_pcl_filter_rs_front:=./config/rs_front_filter.yaml
+          config_pcl_filter_rs_down:=./config/rs_down_filter.yaml
   - takeoff:
       layout: tiled
       panes:
@@ -46,14 +60,14 @@ windows:
   - goto:
       layout: tiled
       panes:
-        - 'history -s rosservice call /$UAV_NAME/control_manager/goto \"goal: \[0.0, 10.0, 1.5, 0.0\]\"'
+        - 'history -s rosservice call /$UAV_NAME/octomap_planner/goto \"goal: \[0.0, 60.0, 2.0, 0.0\]\"'
   - rviz:
       layout: tiled
       panes:
-        - waitForControl; roslaunch mrs_uav_core rviz.launch
+        - waitForControl; rosrun rviz rviz -d ./rviz.rviz
         - waitForControl; roslaunch mrs_rviz_plugins load_robot.launch
-        - waitForControl; roslaunch mrs_rviz_plugins rviz_interface.launch
+        - waitForTime; waitForControl; roslaunch mrs_rviz_plugins rviz_interface.launch rviz_topic_name:='/move_base_simple/goal' reference_service_name:="/$UAV_NAME/octomap_planner/reference"
   - layout:
       layout: tiled
       panes:
-        - waitForControl; sleep 3; ~/.i3/layout_manager.sh ./layout.json
+        - waitForControl; sleep 4; ~/.i3/layout_manager.sh ./layout.json
