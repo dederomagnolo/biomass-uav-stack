@@ -38,22 +38,6 @@ source ~/.bashrc
 
 - Set your build source: `source devel/setup.bash`
 
-### 3. Test Installation
-
-`roslaunch gazebo_utils full_sim.launch`
-
-### 4. Custom worlds
-
-World files should be placed on: `mrsl_quadrotor_description/worlds`
-
-Models should be placed on: `mrsl_models/models`
-
-Edit `full_sim.launch` to point to your world name at tag:
-
-``
-<arg name="world_model" default="example-world" />
-``
-
 ## Use Docker (Windows)
 
 ### 1. Docker setup
@@ -90,14 +74,10 @@ docker run -it --rm \
 
 - You will land on `biomass-uav-ws` folder. This folder contains the content from `workspace` repo folder.
 - From root run `catkin build`
-
 - Set your build source: `source devel/setup.bash`
 
-### 5. Test Installation
 
-`roslaunch gazebo_utils full_sim.launch`
-
-## Run simulations using MRS only
+## Run simulations
 
 from root: `./tmux/one_drone/start.sh`
 
