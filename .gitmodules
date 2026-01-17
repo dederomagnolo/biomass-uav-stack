@@ -1,3 +1,4 @@
-[submodule "src/kr_autonomous_flight"]
-	path = src/kr_autonomous_flight
+[submodule "workspace/src/kr_autonomous_flight"]
+	path = workspace/src/kr_autonomous_flight
 	url = https://github.com/KumarRobotics/kr_autonomous_flight.git
+	
