@@ -1,0 +1,6 @@
+mean_shift_clustering
+/root/biomass-uav-ws/devel/.private/mean_shift_clustering/lib/libmean_shift_clustering.so /root/biomass-uav-ws/devel/lib/libmean_shift_clustering.so
+/root/biomass-uav-ws/devel/.private/mean_shift_clustering/lib/pkgconfig/mean_shift_clustering.pc /root/biomass-uav-ws/devel/lib/pkgconfig/mean_shift_clustering.pc
+/root/biomass-uav-ws/devel/.private/mean_shift_clustering/lib/mean_shift_clustering/mean_shift_clustering_node /root/biomass-uav-ws/devel/lib/mean_shift_clustering/mean_shift_clustering_node
+/root/biomass-uav-ws/devel/.private/mean_shift_clustering/share/mean_shift_clustering/cmake/mean_shift_clusteringConfig-version.cmake /root/biomass-uav-ws/devel/share/mean_shift_clustering/cmake/mean_shift_clusteringConfig-version.cmake
+/root/biomass-uav-ws/devel/.private/mean_shift_clustering/share/mean_shift_clustering/cmake/mean_shift_clusteringConfig.cmake /root/biomass-uav-ws/devel/share/mean_shift_clustering/cmake/mean_shift_clusteringConfig.cmake
