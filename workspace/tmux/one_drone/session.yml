@@ -5,7 +5,7 @@ socket_name: mrs
 attach: false
 tmux_options: -f /etc/ctu-mrs/tmux.conf
 # you can modify these
-pre_window: source /root/biomass-uav-ws/devel/setup.bash; export UAV_NAME=uav1; export RUN_TYPE=simulation; export UAV_TYPE=x500
+pre_window: source ../../devel/setup.bash; export UAV_NAME=uav1; export RUN_TYPE=simulation; export UAV_TYPE=f450
 startup_window: status
 windows:
   - roscore:
@@ -16,8 +16,7 @@ windows:
       layout: tiled
       panes:
         # this is to import our custom world models from package gazebo_resources
-        - export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$(rospack find gazebo_resources)/models
-        - waitForRos; roslaunch mrs_uav_gazebo_simulation simulation.launch world_file:='$(find gazebo_resources)/worlds/mrs-test.world'
+        - waitForRos; export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$(rospack find gazebo_resources)/models; roslaunch mrs_uav_gazebo_simulation simulation.launch world_file:='$(find gazebo_resources)/worlds/mrs-test.world'
         # below is to import default worlds from ros MRS folder installed
         # - waitForRos; roslaunch mrs_uav_gazebo_simulation simulation.launch world_name:=grass_plane gui:=true
         - waitForGazebo; rosservice call /mrs_drone_spawner/spawn "1 --$UAV_TYPE"
