@@ -99,4 +99,16 @@ Set gazebo_resources path before run
 
 - functional template file with initial settings is available for insert models directly: `template.world`
 
+## Troubleshooting
 
+If your mavros is dying when gazebo is starting
+
+`REQUIRED process [uav1/mavros-2] has died! │450 process has died [pid 4659, exit code -11, cmd`
+
+install the packs below:
+
+```
+apt-get update
+apt-get install -y geographiclib-tools
+geographiclib-get-geoids egm96-5
+```
