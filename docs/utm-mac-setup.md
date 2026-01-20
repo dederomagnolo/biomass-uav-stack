@@ -4,20 +4,9 @@ You will need to download Ubuntu Server image. Check your chip to decide for amd
 
 [Setup UTM following this guide](https://docs.getutm.app/guides/ubuntu/).
 
-## Basic tools
-
-#### Vs code
-
-[Download deb](https://code.visualstudio.com/download#)
-
-Example for Apple Silicon Build - ARM
-```
-cd ~/Downloads
-sudo apt update
-sudo apt install ./code_*_arm64.deb 
-```
-
 ## Virtio Shared Directory
+
+Shared directory allow your UTM files to not get lost in the case a problem occurs and allow the edit from host.
 
 First, set up on UTM the shared directory path. Then, run:
 
@@ -75,8 +64,20 @@ use:
 
 `git config --global --add safe.directory /mnt/utmshare/biomass-uav-stack`
 
+## Basic tools
 
-## SSH key for git, use git email
+#### Vs code
+
+[Download deb](https://code.visualstudio.com/download#)
+
+Example for Apple Silicon Build - ARM
+```
+cd ~/Downloads
+sudo apt update
+sudo apt install ./code_*_arm64.deb 
+```
+
+#### SSH key for git email
 
 1. Generate key
 
@@ -91,3 +92,41 @@ ssh-add ~/.ssh/id_ed25519
 
 3. Copy key & add to git platform
 ``cat ~/.ssh/id_ed25519.pub``
+
+#### Docker
+
+1. Add docker repo & add GPG key
+
+```
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg
+
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo $VERSION_CODENAME) stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+```
+
+2. Install docker engine & docker compose
+
+`sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
+
+3. Init service
+
+```
+sudo systemctl enable --now docker
+sudo systemctl status docker --no-pager
+```
+
+4. Config docker to use as user, not asking for sudo
+
+```
+sudo usermod -aG docker $USER
+newgrp docker
+```

@@ -30,9 +30,7 @@ echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-Tools:
-
-`sudo apt install -y python3-catkin-tools python3-osrf-pycommon`
+- Tools: `sudo apt install -y python3-catkin-tools python3-osrf-pycommon`
 
 - Install [MRS System](https://github.com/ctu-mrs/mrs_uav_system)
 
