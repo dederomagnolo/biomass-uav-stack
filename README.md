@@ -5,7 +5,7 @@
 This repo contains submodules
 
 ``
-git clone --recurse-submodules git@github.com:dederomagnolo/biomass-uav-stack.git
+git clone git@github.com:dederomagnolo/biomass-uav-stack.git
 ``
 
 ## Build from Source - Ubuntu 20.04
@@ -29,6 +29,10 @@ To do it only once on your system:
 echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
+
+Tools:
+
+`sudo apt install -y python3-catkin-tools python3-osrf-pycommon`
 
 - Install [MRS System](https://github.com/ctu-mrs/mrs_uav_system)
 
