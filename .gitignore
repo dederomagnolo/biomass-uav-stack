@@ -2,4 +2,4 @@ workspace/build
 workspace/devel
 workspace/logs
 
-workspace/.catkin-tools
+workspace/.catkin_tools
