@@ -24,13 +24,29 @@ First, set up on UTM the shared directory path. Then, run:
 ```
 sudo mkdir -p /mnt/utmshare
 sudo modprobe 9p 9pnet 9pnet_virtio
-sudo mount -t 9p -o trans=virtio,version=9p2000.L,msize=262144 share /mnt/utmshare
+sudo mount -t 9p -o trans=virtio,version=9p2000.L,msize=262144,access=client share /mnt/utmshare
 ls -la /mnt/utmshare
+```
+
+#### Mount on boot
+
+1. `sudo nano /etc/fstab`
+2. Add on last line:
+
+`share  /mnt/utmshare  9p  trans=virtio,version=9p2000.L,msize=262144,access=client,nofail,x-systemd.automount,x-systemd.idle-timeout=30  0  0`
+3. Active & test it without rebooting
+
+```
+sudo systemctl daemon-reload
+sudo mount -a
+ls /mnt/utmshare
 ```
 
 #### Problems with permission
 
-if you already created the mount, grab your id with 
+First, try to change on HOST the permission to read & write on macOS folder info.
+
+If it doesn't work, maybe you need to recreate your mount. If you already created the mount, grab your id with 
 ```
 id -u
 id -g
@@ -51,9 +67,7 @@ sudo chown -R "$USER":"$USER" /mnt/utmshare/my-folder
 cd /mnt/utmshare
 ``
 
-For git permission problems, its easier to clone repos from host.
-
-then, if you get an error like:
+For git permission problem:
 
 `fatal: detected dubious ownership in repository at '/mnt/utmshare/biomass-uav-stack'`
 
