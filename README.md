@@ -1,5 +1,12 @@
 # LARIS - Biomass UAV Stack
 
+This repo aims to centralize all research work done by Biomass Group students from Laris (Laboratory of Autonomous Robots & Intelligent Systems) from UFSCar. 
+
+- simulation-ws offers a centralized simulation env using MRS UAV System. You can create your own world/models and keep it there (see section Create new world)
+- workspace creation: each student can create and manage your own workspace extended by simulation-ws. This way you can share your developed packages to work with an unified simulation repo (see Section create workspace).
+
+Currently the repo was built entirely to use ROS Noetic. ROS 2 work is under progress.
+
 ## Setup
 
 This repo contains submodules

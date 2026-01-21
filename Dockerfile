@@ -44,7 +44,6 @@ RUN apt-get update && apt-get install -y \
     ros-noetic-mavros \
     ros-noetic-mavros-msgs \
     ros-noetic-mavros-extras \
-    geographiclib-tools
 
 RUN apt-get update && sudo apt install -y \
     ros-noetic-rosbridge-server \
@@ -68,6 +67,9 @@ RUN curl -fsSL https://ctu-mrs.github.io/ppa-stable/add_ppa.sh | bash && \
     apt-get update && \
     apt-get install -y ros-noetic-mrs-uav-system-full && \
     rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y geographiclib-tools
+RUN geographiclib-get-geoids egm96-5
 
 # ========================================
 #  Env configs
