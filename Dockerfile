@@ -51,6 +51,12 @@ RUN apt-get update && sudo apt install -y \
     ros-noetic-random-numbers \
     ros-noetic-move-base-msgs
 
+# MAVROS deps
+RUN apt-get update && apt-get install -y \
+    geographiclib-tools \
+    geographiclib-get-geoids \
+    egm96-5
+
 # ========================================
 #  MRS System
 # ========================================
