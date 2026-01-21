@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>mrs_daep_supervisor</name>
+  <version>0.0.1</version>
+  <description>Bridge/relay utilities to connect MRS (odometry + octomap) to AEPlanner (pose + octomap_full).</description>
+
+  <maintainer email="you@todo.todo">Your Name</maintainer>
+  <license>MIT</license>
+
+  <!-- Build tool -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Build dependencies -->
+  <build_depend>rospy</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>octomap_msgs</build_depend>
+
+  <!-- Run dependencies -->
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>octomap_msgs</exec_depend>
+
+  <!-- Optional but common -->
+  <exec_depend>roslaunch</exec_depend>
+
+  <export>
+  </export>
+</package>

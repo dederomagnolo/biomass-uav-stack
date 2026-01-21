@@ -1,5 +1,5 @@
-workspace/build
-workspace/devel
-workspace/logs
+simulation-ws/build
+simulation-ws/devel
+simulation-ws/logs
 
-workspace/.catkin_tools
+simulation-ws/.catkin_tools

@@ -68,13 +68,13 @@ docker run -it --rm \
   --env XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" \
   --volume /tmp/.X11-unix:/tmp/.X11-unix \
   --device /dev/dxg \
-  -v "$(pwd)/workspace:/root/biomass-uav-ws" \
+  -v "$(pwd)/simulation-ws:/root/biomass-uav-ws" \
   biomass-uav-stack
 ```
 
 ### 4. Building
 
-- You will land on `biomass-uav-ws` folder. This folder contains the content from `workspace` repo folder.
+- You will land on `biomass-uav-ws` folder. This folder contains the content from `simulation-ws` repo folder.
 - From root run `catkin build`
 - Set your build source: `source devel/setup.bash`
 
