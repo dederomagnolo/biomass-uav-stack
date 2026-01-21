@@ -1,0 +1,24 @@
+<launch>
+  <!-- Args principais -->
+  <arg name="uav_ns" default="/uav1"/>
+
+  <!-- Odom -> /pose -->
+  <arg name="odom_in" default="$(arg uav_ns)/estimation_manager/odom_main"/>
+  <arg name="pose_out" default="/pose"/>
+
+  <!-- Octomap -> /aeplanner/octomap_full -->
+  <arg name="octomap_in"  default="$(arg uav_ns)/octomap_server/octomap_local_full"/>
+  <arg name="octomap_out" default="/aeplanner/octomap_full"/>
+
+  <!-- Pose relay -->
+  <node pkg="mrs_daep_supervisor" type="pose_relay.py" name="pose_relay" output="screen">
+    <param name="in"  value="$(arg odom_in)"/>
+    <param name="out" value="$(arg pose_out)"/>
+  </node>
+
+  <!-- Octomap relay -->
+  <node pkg="mrs_daep_supervisor" type="octomap_relay.py" name="octomap_relay" output="screen">
+    <param name="in"  value="$(arg octomap_in)"/>
+    <param name="out" value="$(arg octomap_out)"/>
+  </node>
+</launch>
