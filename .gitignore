@@ -3,3 +3,5 @@ simulation-ws/devel
 simulation-ws/logs
 
 simulation-ws/.catkin_tools
+*.bag
+*.pcd

@@ -1,0 +1,2042 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <include><uri>model://sun</uri></include>
+    
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>250 250</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>250 250</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grass</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <physics type="ode">
+      <real_time_update_rate>1000.0</real_time_update_rate>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <gravity>0 0 -9.8</gravity>
+    </physics>
+
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_0_bush_2</name>
+      <pose>-1.52 -36.98 0 0 0 1.35</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_1_bush_2</name>
+      <pose>33.02 -14.31 0 0 0 0.70</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_2_bush_3</name>
+      <pose>50.63 -44.11 0 0 0 3.17</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_3_dtree_1</name>
+      <pose>-36.38 20.83 0 0 0 4.46</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_4_tree_3</name>
+      <pose>-24.58 -36.70 0 0 0 1.52</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_5_dtree_1</name>
+      <pose>47.73 38.09 0 0 0 2.72</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_6_tree_2</name>
+      <pose>-16.42 8.58 0 0 0 1.79</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_7_bush_2</name>
+      <pose>11.07 -45.19 0 0 0 2.96</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_8_bush_3</name>
+      <pose>-9.19 31.93 0 0 0 2.55</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_9_bush_3</name>
+      <pose>-44.68 28.17 0 0 0 4.39</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_10_tree_5</name>
+      <pose>20.07 34.59 0 0 0 3.18</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_11_tree_2</name>
+      <pose>21.34 -36.64 0 0 0 6.27</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_12_bush_2</name>
+      <pose>14.64 -39.92 0 0 0 5.34</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_13_tree_5</name>
+      <pose>43.83 31.61 0 0 0 3.08</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_14_tree_4</name>
+      <pose>0.16 48.12 0 0 0 6.13</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_15_bush_3</name>
+      <pose>-10.35 -47.47 0 0 0 1.56</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_16_bush_1</name>
+      <pose>-23.24 33.11 0 0 0 6.03</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_17_dtree_3</name>
+      <pose>-12.07 43.13 0 0 0 2.50</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_18_dtree_1</name>
+      <pose>-2.34 -56.27 0 0 0 0.12</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_19_tree_4</name>
+      <pose>58.20 -13.19 0 0 0 4.65</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_20_tree_5</name>
+      <pose>-31.10 -33.71 0 0 0 1.08</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_21_tree_3</name>
+      <pose>-38.61 -25.34 0 0 0 2.96</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_22_tree_4</name>
+      <pose>12.18 -0.60 0 0 0 5.63</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_23_bush_2</name>
+      <pose>59.86 33.93 0 0 0 0.72</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_24_bush_3</name>
+      <pose>-30.20 -22.23 0 0 0 2.06</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_25_dtree_3</name>
+      <pose>-58.91 -47.37 0 0 0 4.97</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_26_tree_5</name>
+      <pose>-43.21 -48.19 0 0 0 5.69</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_27_tree_3</name>
+      <pose>54.25 -27.82 0 0 0 4.63</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_28_bush_1</name>
+      <pose>15.06 -27.06 0 0 0 2.84</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_29_tree_2</name>
+      <pose>36.83 -54.44 0 0 0 0.62</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_30_tree_2</name>
+      <pose>17.73 -3.90 0 0 0 4.13</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_31_bush_3</name>
+      <pose>-19.30 -0.24 0 0 0 0.95</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_32_tree_3</name>
+      <pose>-9.52 37.28 0 0 0 3.10</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_33_dtree_1</name>
+      <pose>45.25 15.04 0 0 0 0.60</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_34_tree_2</name>
+      <pose>-26.51 -13.46 0 0 0 0.96</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_35_bush_1</name>
+      <pose>-25.68 -51.35 0 0 0 5.67</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_36_dtree_3</name>
+      <pose>-1.24 -39.29 0 0 0 5.07</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_37_bush_3</name>
+      <pose>30.40 -28.90 0 0 0 2.67</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_38_bush_3</name>
+      <pose>50.07 40.43 0 0 0 2.30</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_39_tree_4</name>
+      <pose>23.25 -44.56 0 0 0 1.84</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_40_tree_1</name>
+      <pose>54.90 -35.57 0 0 0 3.06</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_41_bush_2</name>
+      <pose>-52.18 24.69 0 0 0 5.30</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_42_tree_4</name>
+      <pose>-1.79 18.47 0 0 0 0.59</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_43_tree_4</name>
+      <pose>57.64 4.92 0 0 0 4.41</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_44_dtree_1</name>
+      <pose>52.69 49.55 0 0 0 3.08</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_45_tree_4</name>
+      <pose>-9.55 27.76 0 0 0 3.79</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_46_tree_4</name>
+      <pose>-39.74 -12.75 0 0 0 3.31</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_47_tree_2</name>
+      <pose>-34.26 -34.82 0 0 0 1.42</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_48_tree_5</name>
+      <pose>46.37 -56.68 0 0 0 2.11</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_49_tree_1</name>
+      <pose>-25.47 52.49 0 0 0 0.39</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_50_dtree_3</name>
+      <pose>-58.76 -57.77 0 0 0 1.68</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_51_bush_1</name>
+      <pose>10.54 -43.08 0 0 0 4.94</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_52_tree_2</name>
+      <pose>49.92 -26.64 0 0 0 5.74</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_53_tree_5</name>
+      <pose>-12.40 -13.01 0 0 0 5.70</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_54_bush_3</name>
+      <pose>-1.86 -43.01 0 0 0 1.95</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_55_dtree_1</name>
+      <pose>31.78 47.46 0 0 0 4.66</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_56_tree_5</name>
+      <pose>-27.08 -23.77 0 0 0 1.63</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_57_bush_1</name>
+      <pose>9.08 -21.47 0 0 0 2.30</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_58_tree_1</name>
+      <pose>2.95 55.29 0 0 0 2.75</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_59_tree_1</name>
+      <pose>-15.39 21.08 0 0 0 4.43</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_60_bush_1</name>
+      <pose>17.30 51.61 0 0 0 5.43</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_61_bush_1</name>
+      <pose>44.95 47.59 0 0 0 0.66</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_62_tree_2</name>
+      <pose>-5.80 -41.75 0 0 0 0.47</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_63_bush_1</name>
+      <pose>17.06 44.93 0 0 0 0.72</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_64_tree_1</name>
+      <pose>-40.21 27.93 0 0 0 6.03</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_65_bush_2</name>
+      <pose>32.88 -41.19 0 0 0 0.96</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_66_bush_2</name>
+      <pose>43.85 -17.92 0 0 0 5.46</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_67_bush_3</name>
+      <pose>-56.52 54.32 0 0 0 3.21</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_68_dtree_2</name>
+      <pose>42.14 5.02 0 0 0 5.77</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_69_tree_1</name>
+      <pose>1.09 -10.65 0 0 0 4.05</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_70_dtree_2</name>
+      <pose>39.73 -56.62 0 0 0 2.60</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_71_dtree_3</name>
+      <pose>32.22 16.22 0 0 0 2.81</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_72_dtree_2</name>
+      <pose>23.16 51.04 0 0 0 3.34</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_73_tree_2</name>
+      <pose>55.91 -15.07 0 0 0 5.59</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_74_dtree_1</name>
+      <pose>-59.22 25.97 0 0 0 3.98</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_75_tree_1</name>
+      <pose>-57.06 -15.77 0 0 0 4.49</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_76_tree_4</name>
+      <pose>-4.32 54.29 0 0 0 3.59</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_77_tree_2</name>
+      <pose>42.84 56.69 0 0 0 5.19</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_78_bush_3</name>
+      <pose>-36.67 56.67 0 0 0 5.24</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_79_tree_1</name>
+      <pose>33.58 -41.29 0 0 0 2.85</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_80_bush_2</name>
+      <pose>-39.51 51.95 0 0 0 5.75</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_81_bush_1</name>
+      <pose>9.13 53.38 0 0 0 0.74</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_82_dtree_1</name>
+      <pose>44.20 20.69 0 0 0 4.45</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_83_dtree_2</name>
+      <pose>-7.46 37.30 0 0 0 4.16</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_84_dtree_3</name>
+      <pose>-14.04 -17.24 0 0 0 1.12</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_85_tree_4</name>
+      <pose>-57.08 -18.31 0 0 0 1.85</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_86_tree_1</name>
+      <pose>21.58 56.17 0 0 0 1.47</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_87_tree_2</name>
+      <pose>32.55 -6.71 0 0 0 5.82</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_88_tree_5</name>
+      <pose>30.72 -2.27 0 0 0 2.48</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_89_bush_3</name>
+      <pose>-22.63 -59.24 0 0 0 1.76</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_90_dtree_2</name>
+      <pose>-19.42 11.67 0 0 0 2.13</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_91_tree_5</name>
+      <pose>-9.25 21.37 0 0 0 3.99</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_92_dtree_2</name>
+      <pose>14.60 -1.87 0 0 0 4.23</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_93_dtree_2</name>
+      <pose>12.22 20.26 0 0 0 0.33</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_94_tree_3</name>
+      <pose>10.25 31.48 0 0 0 5.30</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_95_bush_3</name>
+      <pose>-43.03 33.30 0 0 0 0.46</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_96_dtree_3</name>
+      <pose>15.16 24.67 0 0 0 1.94</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_97_dtree_3</name>
+      <pose>39.65 25.61 0 0 0 3.85</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_98_tree_5</name>
+      <pose>-25.14 -57.97 0 0 0 1.13</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_99_dtree_3</name>
+      <pose>38.56 16.09 0 0 0 1.84</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_100_bush_2</name>
+      <pose>7.47 46.81 0 0 0 3.44</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_101_tree_1</name>
+      <pose>-8.06 23.64 0 0 0 1.00</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_102_dtree_1</name>
+      <pose>-20.61 11.07 0 0 0 1.71</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_103_tree_2</name>
+      <pose>-59.68 -15.92 0 0 0 2.99</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_104_dtree_1</name>
+      <pose>32.42 42.65 0 0 0 5.20</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_105_tree_1</name>
+      <pose>-11.11 4.34 0 0 0 0.83</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_106_bush_1</name>
+      <pose>-30.25 41.02 0 0 0 1.58</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_107_tree_2</name>
+      <pose>-52.39 6.34 0 0 0 3.50</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_108_dtree_2</name>
+      <pose>7.46 25.48 0 0 0 4.35</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_109_dtree_3</name>
+      <pose>36.60 -3.74 0 0 0 0.85</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_110_bush_3</name>
+      <pose>19.42 48.43 0 0 0 5.65</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_111_tree_2</name>
+      <pose>-16.03 -48.58 0 0 0 5.34</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_112_tree_5</name>
+      <pose>16.73 -34.56 0 0 0 2.35</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_113_tree_3</name>
+      <pose>27.79 -28.60 0 0 0 0.15</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_114_tree_4</name>
+      <pose>-56.46 47.74 0 0 0 2.71</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_115_tree_4</name>
+      <pose>18.05 51.28 0 0 0 5.72</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_116_tree_1</name>
+      <pose>5.01 45.64 0 0 0 2.88</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_117_tree_2</name>
+      <pose>12.86 33.71 0 0 0 4.92</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_118_tree_2</name>
+      <pose>52.68 -35.48 0 0 0 3.53</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_119_dtree_3</name>
+      <pose>-38.81 39.59 0 0 0 2.43</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_120_dtree_2</name>
+      <pose>36.14 30.72 0 0 0 5.00</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_121_dtree_2</name>
+      <pose>18.82 6.50 0 0 0 1.84</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_122_tree_2</name>
+      <pose>-10.38 -48.62 0 0 0 5.32</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_123_bush_3</name>
+      <pose>-11.59 -32.34 0 0 0 2.83</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_124_tree_2</name>
+      <pose>29.00 35.88 0 0 0 3.73</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_125_tree_2</name>
+      <pose>-24.74 40.03 0 0 0 1.46</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_126_tree_3</name>
+      <pose>-24.82 -22.76 0 0 0 1.77</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_127_dtree_2</name>
+      <pose>-16.39 5.93 0 0 0 5.77</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_128_dtree_3</name>
+      <pose>-37.43 3.45 0 0 0 5.04</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_129_tree_1</name>
+      <pose>-29.05 -7.09 0 0 0 3.54</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_130_dtree_3</name>
+      <pose>-35.04 -41.73 0 0 0 2.70</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_131_dtree_2</name>
+      <pose>39.33 19.27 0 0 0 0.08</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_132_tree_1</name>
+      <pose>-35.58 -8.99 0 0 0 5.25</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_133_bush_3</name>
+      <pose>-51.71 -10.22 0 0 0 5.45</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_134_tree_3</name>
+      <pose>1.39 -47.86 0 0 0 0.39</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_135_tree_2</name>
+      <pose>19.83 -13.97 0 0 0 3.16</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_136_tree_2</name>
+      <pose>-9.31 18.57 0 0 0 2.63</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_137_bush_2</name>
+      <pose>58.42 -22.86 0 0 0 2.76</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_138_bush_1</name>
+      <pose>13.98 -38.17 0 0 0 1.58</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_139_bush_2</name>
+      <pose>32.48 3.30 0 0 0 1.41</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_140_dtree_3</name>
+      <pose>18.35 31.30 0 0 0 2.10</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_141_dtree_3</name>
+      <pose>-10.85 41.34 0 0 0 4.08</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_142_dtree_3</name>
+      <pose>24.44 57.65 0 0 0 3.75</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_143_bush_3</name>
+      <pose>-41.33 44.44 0 0 0 2.01</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_144_tree_2</name>
+      <pose>50.52 36.78 0 0 0 0.61</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_145_dtree_2</name>
+      <pose>54.71 -12.35 0 0 0 3.97</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_146_tree_3</name>
+      <pose>21.70 23.56 0 0 0 2.10</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_147_dtree_1</name>
+      <pose>46.44 -23.61 0 0 0 2.80</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_148_dtree_1</name>
+      <pose>-15.81 -13.63 0 0 0 5.52</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_149_bush_2</name>
+      <pose>54.77 -13.50 0 0 0 1.42</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_150_dtree_1</name>
+      <pose>-1.55 -29.98 0 0 0 3.38</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_151_tree_3</name>
+      <pose>26.30 -1.81 0 0 0 3.77</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_152_dtree_2</name>
+      <pose>54.84 37.96 0 0 0 2.58</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_153_tree_4</name>
+      <pose>-24.44 -37.89 0 0 0 1.74</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_154_bush_2</name>
+      <pose>-10.54 24.56 0 0 0 4.73</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_155_tree_5</name>
+      <pose>35.38 -35.35 0 0 0 4.84</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_156_bush_2</name>
+      <pose>-52.18 24.11 0 0 0 5.37</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_157_tree_3</name>
+      <pose>-59.06 -4.41 0 0 0 6.27</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_158_tree_1</name>
+      <pose>-24.52 9.59 0 0 0 1.98</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_159_tree_3</name>
+      <pose>-51.55 31.30 0 0 0 4.06</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_160_tree_2</name>
+      <pose>58.57 38.02 0 0 0 0.65</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_161_bush_3</name>
+      <pose>9.05 58.81 0 0 0 0.30</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_162_bush_1</name>
+      <pose>-26.44 57.68 0 0 0 3.26</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_163_dtree_1</name>
+      <pose>-10.46 -14.51 0 0 0 5.17</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_164_dtree_2</name>
+      <pose>-16.54 -41.56 0 0 0 4.95</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_165_bush_3</name>
+      <pose>45.43 24.55 0 0 0 3.14</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_166_bush_2</name>
+      <pose>42.72 39.76 0 0 0 4.58</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_167_tree_4</name>
+      <pose>-11.29 51.05 0 0 0 5.95</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_168_bush_3</name>
+      <pose>-30.60 -41.71 0 0 0 1.55</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_169_bush_1</name>
+      <pose>19.09 1.65 0 0 0 3.25</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_170_tree_2</name>
+      <pose>35.44 23.31 0 0 0 3.92</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_171_tree_4</name>
+      <pose>-45.24 40.83 0 0 0 3.26</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_172_dtree_2</name>
+      <pose>26.66 46.67 0 0 0 4.03</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_173_tree_2</name>
+      <pose>47.47 -18.03 0 0 0 4.66</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_174_tree_4</name>
+      <pose>-54.03 23.96 0 0 0 4.17</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_175_tree_1</name>
+      <pose>-16.70 -36.97 0 0 0 1.16</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_176_tree_2</name>
+      <pose>-50.23 -57.31 0 0 0 5.58</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_177_tree_4</name>
+      <pose>19.90 59.83 0 0 0 4.61</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_178_bush_3</name>
+      <pose>-0.00 12.64 0 0 0 2.83</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_179_tree_5</name>
+      <pose>42.80 -23.55 0 0 0 5.22</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_180_tree_3</name>
+      <pose>42.29 21.96 0 0 0 4.98</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_181_tree_4</name>
+      <pose>17.57 -28.57 0 0 0 0.51</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_182_bush_2</name>
+      <pose>13.14 -57.22 0 0 0 3.04</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_183_dtree_3</name>
+      <pose>-45.85 -1.30 0 0 0 0.03</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_184_dtree_3</name>
+      <pose>-48.04 23.29 0 0 0 0.30</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_185_bush_3</name>
+      <pose>22.27 -2.03 0 0 0 1.80</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_186_bush_3</name>
+      <pose>0.99 32.74 0 0 0 0.94</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_187_tree_2</name>
+      <pose>-8.14 30.92 0 0 0 4.11</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_188_tree_2</name>
+      <pose>-49.73 48.62 0 0 0 2.70</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_189_dtree_1</name>
+      <pose>-47.72 -4.22 0 0 0 5.99</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_190_tree_5</name>
+      <pose>43.43 10.09 0 0 0 5.66</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_191_tree_1</name>
+      <pose>-56.14 -15.08 0 0 0 5.96</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_192_dtree_1</name>
+      <pose>-24.77 -4.13 0 0 0 1.65</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_193_tree_5</name>
+      <pose>52.66 -1.38 0 0 0 1.51</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_194_bush_2</name>
+      <pose>-52.04 54.24 0 0 0 5.77</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_195_tree_1</name>
+      <pose>47.58 -34.79 0 0 0 0.08</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_196_dtree_3</name>
+      <pose>-2.95 -55.02 0 0 0 0.97</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_197_tree_2</name>
+      <pose>35.95 -4.33 0 0 0 3.50</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_198_bush_3</name>
+      <pose>24.92 -52.86 0 0 0 5.87</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_199_dtree_1</name>
+      <pose>-28.96 25.17 0 0 0 5.47</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_200_dtree_2</name>
+      <pose>-15.21 -15.73 0 0 0 4.91</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_201_tree_2</name>
+      <pose>-19.62 -14.34 0 0 0 3.28</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_202_dtree_3</name>
+      <pose>59.52 46.08 0 0 0 6.08</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_203_bush_1</name>
+      <pose>-49.49 -30.67 0 0 0 4.93</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_204_tree_5</name>
+      <pose>-45.36 -16.47 0 0 0 3.48</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_205_dtree_2</name>
+      <pose>-45.02 58.03 0 0 0 4.27</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_206_bush_2</name>
+      <pose>-55.92 -29.77 0 0 0 2.19</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_207_dtree_3</name>
+      <pose>-29.23 -17.99 0 0 0 5.49</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_208_bush_2</name>
+      <pose>-18.28 -44.33 0 0 0 3.52</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_209_tree_5</name>
+      <pose>0.39 36.91 0 0 0 1.77</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_210_bush_1</name>
+      <pose>-40.28 -16.58 0 0 0 2.76</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_211_tree_1</name>
+      <pose>10.12 -55.80 0 0 0 0.69</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_212_bush_3</name>
+      <pose>41.45 -7.06 0 0 0 4.64</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_213_bush_1</name>
+      <pose>-48.70 -18.36 0 0 0 5.40</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_214_dtree_3</name>
+      <pose>0.41 42.42 0 0 0 3.90</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_215_bush_3</name>
+      <pose>-15.97 -24.03 0 0 0 2.65</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_216_dtree_1</name>
+      <pose>15.21 -55.09 0 0 0 5.73</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_217_tree_5</name>
+      <pose>0.37 -17.30 0 0 0 0.32</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_218_tree_5</name>
+      <pose>26.37 -27.60 0 0 0 6.09</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_219_tree_4</name>
+      <pose>-42.84 39.03 0 0 0 4.10</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_220_dtree_2</name>
+      <pose>59.50 27.68 0 0 0 4.31</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_221_tree_4</name>
+      <pose>-42.30 54.71 0 0 0 1.05</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_222_tree_1</name>
+      <pose>-7.27 49.69 0 0 0 2.54</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_223_tree_2</name>
+      <pose>23.18 -4.29 0 0 0 0.35</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_224_tree_2</name>
+      <pose>-18.20 22.28 0 0 0 2.60</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_225_dtree_3</name>
+      <pose>-44.23 30.63 0 0 0 6.13</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_226_tree_2</name>
+      <pose>-8.57 -17.98 0 0 0 5.90</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_227_tree_4</name>
+      <pose>-55.90 -9.59 0 0 0 2.54</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_228_tree_3</name>
+      <pose>-39.95 -19.23 0 0 0 1.43</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_229_tree_1</name>
+      <pose>-21.48 -47.18 0 0 0 6.24</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_230_tree_4</name>
+      <pose>-12.96 30.96 0 0 0 4.95</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_231_tree_1</name>
+      <pose>-27.17 -36.05 0 0 0 4.11</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_232_dtree_2</name>
+      <pose>-38.03 35.03 0 0 0 1.79</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_233_bush_2</name>
+      <pose>11.08 11.66 0 0 0 4.84</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_234_bush_2</name>
+      <pose>-23.57 -0.61 0 0 0 4.72</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_235_tree_4</name>
+      <pose>-58.39 -14.59 0 0 0 1.33</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_236_bush_2</name>
+      <pose>-4.75 19.64 0 0 0 5.78</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_237_tree_5</name>
+      <pose>-14.47 -59.83 0 0 0 3.63</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_238_bush_1</name>
+      <pose>-9.62 35.92 0 0 0 4.33</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_239_dtree_3</name>
+      <pose>33.90 26.86 0 0 0 5.42</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_240_bush_2</name>
+      <pose>-25.69 -17.23 0 0 0 6.21</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_241_tree_4</name>
+      <pose>-5.78 45.39 0 0 0 5.18</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_242_tree_5</name>
+      <pose>39.49 45.12 0 0 0 3.34</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_243_bush_3</name>
+      <pose>-35.22 43.43 0 0 0 1.40</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_244_bush_3</name>
+      <pose>-28.48 -7.46 0 0 0 2.31</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_245_bush_2</name>
+      <pose>-14.55 -50.06 0 0 0 4.05</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_246_bush_2</name>
+      <pose>-37.12 -33.35 0 0 0 0.77</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_247_dtree_3</name>
+      <pose>59.69 16.73 0 0 0 2.01</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_248_tree_1</name>
+      <pose>-39.26 -10.51 0 0 0 3.08</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_249_dtree_1</name>
+      <pose>33.38 -7.91 0 0 0 6.00</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_250_bush_3</name>
+      <pose>36.68 21.44 0 0 0 1.35</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_251_dtree_1</name>
+      <pose>-27.00 57.25 0 0 0 6.00</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_252_bush_3</name>
+      <pose>23.49 6.13 0 0 0 4.72</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_253_tree_4</name>
+      <pose>37.31 22.03 0 0 0 3.86</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_254_tree_5</name>
+      <pose>-16.34 29.17 0 0 0 5.42</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_255_dtree_1</name>
+      <pose>-22.84 -12.28 0 0 0 4.06</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_256_dtree_2</name>
+      <pose>-20.25 14.59 0 0 0 6.12</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_257_tree_1</name>
+      <pose>22.10 -30.83 0 0 0 1.32</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_258_tree_5</name>
+      <pose>-55.66 25.90 0 0 0 4.24</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_259_dtree_1</name>
+      <pose>8.52 6.35 0 0 0 2.63</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_260_bush_3</name>
+      <pose>-52.23 16.44 0 0 0 5.56</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_261_tree_1</name>
+      <pose>46.12 11.40 0 0 0 1.69</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_262_tree_4</name>
+      <pose>-12.80 32.31 0 0 0 3.00</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_263_tree_3</name>
+      <pose>56.07 -54.95 0 0 0 1.95</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_264_dtree_2</name>
+      <pose>-28.47 -37.61 0 0 0 5.89</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_265_tree_4</name>
+      <pose>-57.13 40.35 0 0 0 0.70</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_266_tree_4</name>
+      <pose>-37.07 48.46 0 0 0 2.63</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_267_bush_2</name>
+      <pose>-12.80 56.95 0 0 0 5.48</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_268_dtree_2</name>
+      <pose>-24.11 44.83 0 0 0 2.97</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_269_dtree_1</name>
+      <pose>1.83 16.64 0 0 0 4.17</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_270_tree_5</name>
+      <pose>37.17 53.41 0 0 0 5.08</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_271_bush_2</name>
+      <pose>44.19 -44.70 0 0 0 0.72</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_272_dtree_1</name>
+      <pose>-53.93 -18.80 0 0 0 0.97</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_273_bush_2</name>
+      <pose>41.98 -3.17 0 0 0 1.45</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_274_tree_5</name>
+      <pose>0.31 53.32 0 0 0 4.18</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_275_tree_4</name>
+      <pose>8.72 -19.84 0 0 0 2.85</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_276_dtree_2</name>
+      <pose>47.09 7.28 0 0 0 3.10</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_277_dtree_2</name>
+      <pose>-16.37 10.34 0 0 0 1.51</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_278_tree_3</name>
+      <pose>28.74 12.52 0 0 0 2.74</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_279_bush_2</name>
+      <pose>-31.40 17.38 0 0 0 2.65</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_280_dtree_3</name>
+      <pose>11.20 -6.41 0 0 0 1.46</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_281_tree_4</name>
+      <pose>-22.10 18.18 0 0 0 4.95</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_282_dtree_1</name>
+      <pose>-45.65 16.09 0 0 0 0.86</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_283_dtree_3</name>
+      <pose>16.82 14.55 0 0 0 4.59</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_284_tree_2</name>
+      <pose>13.40 28.86 0 0 0 0.56</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_285_dtree_2</name>
+      <pose>46.32 16.45 0 0 0 1.90</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_286_tree_3</name>
+      <pose>-27.82 0.98 0 0 0 0.15</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_287_dtree_3</name>
+      <pose>38.27 26.10 0 0 0 0.37</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_288_bush_1</name>
+      <pose>19.28 -6.72 0 0 0 3.70</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_289_tree_5</name>
+      <pose>-5.90 -57.30 0 0 0 3.98</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_290_bush_1</name>
+      <pose>35.19 -22.20 0 0 0 5.86</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_291_dtree_3</name>
+      <pose>6.61 13.72 0 0 0 2.01</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_292_bush_2</name>
+      <pose>-30.75 38.33 0 0 0 1.43</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_293_bush_2</name>
+      <pose>49.49 -52.03 0 0 0 3.87</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_294_tree_1</name>
+      <pose>-55.08 17.90 0 0 0 0.53</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_295_tree_5</name>
+      <pose>-42.41 37.31 0 0 0 2.97</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_296_dtree_2</name>
+      <pose>-49.69 -9.52 0 0 0 5.37</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_297_bush_2</name>
+      <pose>1.46 43.60 0 0 0 3.45</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_298_tree_3</name>
+      <pose>43.10 -24.02 0 0 0 2.95</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_299_bush_1</name>
+      <pose>21.01 26.10 0 0 0 3.22</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_300_dtree_3</name>
+      <pose>-40.82 -52.28 0 0 0 5.58</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_301_dtree_1</name>
+      <pose>-32.73 47.64 0 0 0 3.83</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_302_bush_3</name>
+      <pose>17.58 15.58 0 0 0 1.16</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_303_dtree_1</name>
+      <pose>-9.28 -17.08 0 0 0 5.96</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_304_dtree_3</name>
+      <pose>11.89 -38.51 0 0 0 1.69</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_305_bush_1</name>
+      <pose>37.34 -35.18 0 0 0 0.61</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_306_bush_1</name>
+      <pose>13.66 -39.66 0 0 0 2.95</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_307_bush_1</name>
+      <pose>35.19 -12.74 0 0 0 0.16</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_308_tree_4</name>
+      <pose>-1.88 -13.92 0 0 0 4.49</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_309_tree_1</name>
+      <pose>-25.10 -42.79 0 0 0 5.19</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_310_tree_4</name>
+      <pose>-42.55 -31.90 0 0 0 5.35</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_311_bush_3</name>
+      <pose>13.47 21.23 0 0 0 1.76</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_312_bush_2</name>
+      <pose>59.79 3.86 0 0 0 6.05</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_313_tree_3</name>
+      <pose>-11.68 -35.18 0 0 0 3.43</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_314_tree_5</name>
+      <pose>-58.51 30.93 0 0 0 0.68</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_315_dtree_2</name>
+      <pose>-34.02 48.54 0 0 0 6.02</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_316_tree_2</name>
+      <pose>33.73 -22.21 0 0 0 3.78</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_317_dtree_1</name>
+      <pose>13.86 54.17 0 0 0 4.85</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_318_tree_1</name>
+      <pose>34.37 57.66 0 0 0 3.38</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_319_tree_1</name>
+      <pose>44.96 -9.62 0 0 0 0.10</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_320_dtree_3</name>
+      <pose>25.08 -31.37 0 0 0 2.86</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_321_dtree_2</name>
+      <pose>25.96 -15.34 0 0 0 5.49</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_322_tree_3</name>
+      <pose>-32.16 8.09 0 0 0 4.33</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_323_tree_3</name>
+      <pose>-46.07 -14.95 0 0 0 1.27</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_324_dtree_2</name>
+      <pose>15.05 17.80 0 0 0 5.67</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_325_tree_3</name>
+      <pose>-3.39 58.64 0 0 0 2.70</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_326_bush_1</name>
+      <pose>-53.59 -16.51 0 0 0 3.69</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_327_bush_1</name>
+      <pose>43.51 -24.07 0 0 0 1.09</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_328_tree_3</name>
+      <pose>-39.38 35.65 0 0 0 2.02</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_329_dtree_1</name>
+      <pose>6.90 19.59 0 0 0 4.06</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_330_bush_3</name>
+      <pose>0.57 28.65 0 0 0 5.03</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_331_dtree_2</name>
+      <pose>58.11 -24.06 0 0 0 3.40</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_332_dtree_2</name>
+      <pose>-57.67 20.31 0 0 0 1.52</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_333_bush_1</name>
+      <pose>40.31 -5.66 0 0 0 0.68</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_334_tree_2</name>
+      <pose>19.39 0.83 0 0 0 0.70</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_335_dtree_3</name>
+      <pose>-7.38 -34.61 0 0 0 2.48</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_336_dtree_2</name>
+      <pose>-18.69 -0.75 0 0 0 3.11</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_337_tree_2</name>
+      <pose>-7.20 38.52 0 0 0 0.02</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_338_tree_3</name>
+      <pose>41.38 -14.58 0 0 0 5.79</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_339_bush_2</name>
+      <pose>12.00 -22.58 0 0 0 4.31</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_340_tree_1</name>
+      <pose>-35.20 -47.91 0 0 0 4.16</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_341_bush_2</name>
+      <pose>8.38 33.28 0 0 0 5.83</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_342_dtree_2</name>
+      <pose>26.46 17.08 0 0 0 1.02</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_343_tree_5</name>
+      <pose>57.25 7.69 0 0 0 4.42</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_344_tree_2</name>
+      <pose>36.46 37.60 0 0 0 5.94</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_345_bush_3</name>
+      <pose>-51.20 47.13 0 0 0 5.90</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_346_tree_4</name>
+      <pose>-40.60 7.10 0 0 0 4.35</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_347_bush_2</name>
+      <pose>14.74 -4.10 0 0 0 0.61</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_348_tree_2</name>
+      <pose>-26.15 -58.38 0 0 0 5.65</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_349_tree_5</name>
+      <pose>56.90 56.77 0 0 0 5.15</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_350_tree_4</name>
+      <pose>44.16 1.46 0 0 0 6.10</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_351_tree_5</name>
+      <pose>29.95 -25.49 0 0 0 5.65</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_352_tree_2</name>
+      <pose>-46.92 -8.89 0 0 0 3.96</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_353_bush_3</name>
+      <pose>5.75 -9.33 0 0 0 2.88</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_354_tree_1</name>
+      <pose>49.60 54.40 0 0 0 4.41</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_355_dtree_3</name>
+      <pose>41.21 27.26 0 0 0 0.82</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_356_bush_1</name>
+      <pose>-0.47 59.58 0 0 0 1.00</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_357_dtree_1</name>
+      <pose>31.08 56.70 0 0 0 6.01</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_358_tree_3</name>
+      <pose>-33.03 17.89 0 0 0 4.53</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_359_tree_4</name>
+      <pose>-40.75 -39.39 0 0 0 1.04</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_360_dtree_2</name>
+      <pose>24.06 -56.37 0 0 0 1.80</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_361_tree_4</name>
+      <pose>-10.96 17.90 0 0 0 3.56</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_362_bush_2</name>
+      <pose>-2.62 42.21 0 0 0 6.25</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_363_tree_4</name>
+      <pose>19.17 13.19 0 0 0 2.69</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_364_tree_3</name>
+      <pose>-32.82 26.34 0 0 0 3.50</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_365_tree_2</name>
+      <pose>-16.06 -16.81 0 0 0 5.75</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_366_bush_3</name>
+      <pose>-59.73 41.50 0 0 0 0.53</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_367_tree_5</name>
+      <pose>-27.18 53.33 0 0 0 2.67</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_368_tree_1</name>
+      <pose>50.84 -25.82 0 0 0 0.80</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_369_tree_5</name>
+      <pose>49.68 12.24 0 0 0 4.92</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_370_tree_2</name>
+      <pose>58.69 -31.17 0 0 0 5.62</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_371_tree_3</name>
+      <pose>-23.89 -6.09 0 0 0 4.37</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_372_bush_3</name>
+      <pose>-25.84 -13.97 0 0 0 5.96</pose>
+    </include>
+    <include>
+      <uri>model://bush_2</uri>
+      <name>obj_373_bush_2</name>
+      <pose>-54.56 -32.92 0 0 0 3.69</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_374_bush_3</name>
+      <pose>-42.58 -35.37 0 0 0 1.29</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_375_tree_3</name>
+      <pose>7.38 50.46 0 0 0 4.09</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_376_bush_1</name>
+      <pose>-32.93 47.34 0 0 0 4.13</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_377_tree_2</name>
+      <pose>16.71 -12.33 0 0 0 3.91</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_378_dtree_2</name>
+      <pose>22.12 -51.41 0 0 0 3.01</pose>
+    </include>
+    <include>
+      <uri>model://bush_1</uri>
+      <name>obj_379_bush_1</name>
+      <pose>52.23 -32.13 0 0 0 5.45</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_380_dtree_3</name>
+      <pose>29.48 37.90 0 0 0 3.74</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_381_bush_3</name>
+      <pose>-2.35 58.23 0 0 0 3.36</pose>
+    </include>
+    <include>
+      <uri>model://dtree_2</uri>
+      <name>obj_382_dtree_2</name>
+      <pose>18.30 -9.03 0 0 0 3.00</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_383_bush_3</name>
+      <pose>-24.20 5.53 0 0 0 2.75</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_384_tree_2</name>
+      <pose>0.23 36.03 0 0 0 5.70</pose>
+    </include>
+    <include>
+      <uri>model://tree_5</uri>
+      <name>obj_385_tree_5</name>
+      <pose>55.61 -59.77 0 0 0 4.40</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_386_tree_3</name>
+      <pose>47.79 -40.88 0 0 0 3.20</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_387_bush_3</name>
+      <pose>35.24 -11.36 0 0 0 0.52</pose>
+    </include>
+    <include>
+      <uri>model://tree_4</uri>
+      <name>obj_388_tree_4</name>
+      <pose>-18.05 -31.12 0 0 0 6.15</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_389_tree_1</name>
+      <pose>2.57 54.73 0 0 0 0.40</pose>
+    </include>
+    <include>
+      <uri>model://tree_1</uri>
+      <name>obj_390_tree_1</name>
+      <pose>58.62 -10.00 0 0 0 4.81</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_391_dtree_3</name>
+      <pose>-47.22 -16.46 0 0 0 0.46</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_392_bush_3</name>
+      <pose>-22.09 -21.04 0 0 0 4.90</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_393_tree_3</name>
+      <pose>27.71 -38.16 0 0 0 2.93</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_394_tree_3</name>
+      <pose>-46.74 25.39 0 0 0 5.85</pose>
+    </include>
+    <include>
+      <uri>model://dtree_3</uri>
+      <name>obj_395_dtree_3</name>
+      <pose>29.85 -13.16 0 0 0 1.82</pose>
+    </include>
+    <include>
+      <uri>model://tree_2</uri>
+      <name>obj_396_tree_2</name>
+      <pose>46.21 -16.53 0 0 0 0.59</pose>
+    </include>
+    <include>
+      <uri>model://dtree_1</uri>
+      <name>obj_397_dtree_1</name>
+      <pose>-15.95 -30.21 0 0 0 3.90</pose>
+    </include>
+    <include>
+      <uri>model://bush_3</uri>
+      <name>obj_398_bush_3</name>
+      <pose>51.68 50.20 0 0 0 3.88</pose>
+    </include>
+    <include>
+      <uri>model://tree_3</uri>
+      <name>obj_399_tree_3</name>
+      <pose>4.38 -38.50 0 0 0 2.90</pose>
+    </include>
+  </world>
+</sdf>

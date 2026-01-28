@@ -43,7 +43,7 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && apt-get install -y \
     ros-noetic-mavros \
     ros-noetic-mavros-msgs \
-    ros-noetic-mavros-extras \
+    ros-noetic-mavros-extras
 
 RUN apt-get update && sudo apt install -y \
     ros-noetic-rosbridge-server \
@@ -51,10 +51,8 @@ RUN apt-get update && sudo apt install -y \
     ros-noetic-move-base-msgs
 
 # MAVROS deps
-RUN apt-get update && apt-get install -y \
-    geographiclib-tools \
-    geographiclib-get-geoids \
-    egm96-5
+RUN apt-get update && apt-get install -y geographiclib-tools
+RUN geographiclib-get-geoids egm96-5
 
 # ========================================
 #  MRS System

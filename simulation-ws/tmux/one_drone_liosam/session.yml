@@ -19,8 +19,8 @@ windows:
   - gazebo:
       layout: tiled
       panes:
-        - waitForRos; roslaunch mrs_uav_gazebo_simulation simulation.launch world_file:='$(find gazebo_resources)/worlds/cerrado_1.world'
-        # - waitForRos; roslaunch mrs_uav_gazebo_simulation simulation.launch world_name:=grass_plane gui:=true
+        - waitForRos; roslaunch mrs_uav_gazebo_simulation simulation.launch world_file:='$(find gazebo_resources)/worlds/floresta_grande_slam.world'
+        #- waitForRos; roslaunch mrs_uav_gazebo_simulation simulation.launch world_name:=forest gui:=true
         - waitForControl; gz camera -c gzclient_camera -f $UAV_NAME; history -s gz camera -c gzclient_camera -f $UAV_NAME
   - status:
       layout: tiled
@@ -29,7 +29,7 @@ windows:
   - spawn:
       layout: tiled
       panes:
-        - waitForGazebo; rosservice call /mrs_drone_spawner/spawn "1 $UAV_TYPE --enable-rangefinder --enable-ground-truth --enable-ouster model:=OS0-32 horizontal_samples:=1024 use_gpu:=True --pos 0 0 0 0"
+        - waitForGazebo; rosservice call /mrs_drone_spawner/spawn "1 $UAV_TYPE --enable-rangefinder --enable-ground-truth --enable-ouster model:=OS0-128 horizontal_samples:=1024 use_gpu:=True --pos 0 0 0 0"
   - hw_api:
       layout: tiled
       panes:
@@ -45,7 +45,7 @@ windows:
   - slam:
       layout: tiled
       panes:
-        - waitForHw; sleep 10; roslaunch mrs_liosam_core slam_pipeline.launch OUSTER_TYPE:=OS0-128 IMU_TYPE:=ouster
+        - waitForHw; roslaunch mrs_liosam_core slam_pipeline.launch OUSTER_TYPE:=OS0-128 IMU_TYPE:=ouster
   - takeoff:
       layout: tiled
       panes:
