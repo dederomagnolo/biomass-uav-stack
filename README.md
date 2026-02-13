@@ -65,10 +65,11 @@ First make sure the repo has been cloned under your WSL files. From repo root bu
 docker build -t biomass-uav-stack .
 ``
 
-### 3. Start your container
+### 3. Start your container 
 
+1. For first time, run:
 ```
-docker run -it --rm \
+docker run -it \
   --name biomass-uav-stack \
   --env DISPLAY="$DISPLAY" \
   --env WAYLAND_DISPLAY="$WAYLAND_DISPLAY" \
@@ -78,6 +79,12 @@ docker run -it --rm \
   -v "$(pwd)/simulation-ws:/root/biomass-uav-ws" \
   biomass-uav-stack
 ```
+
+2. When container exists:
+
+`docker start biomass-uav-stack`
+
+`docker exec -it biomass-uav-stack bash`
 
 ### 4. Building
 
@@ -119,3 +126,15 @@ apt-get update
 apt-get install -y geographiclib-tools
 geographiclib-get-geoids egm96-5
 ```
+
+### Create workspace to your own pourpose
+
+The idea is to centralize simulations into `simulation-ws`. 
+
+create a new workspace on root
+
+`mkdir my-ws`
+`cd my-ws`
+`mkdir src`
+
+`catkin config --extend ../simulation-ws/devel`
