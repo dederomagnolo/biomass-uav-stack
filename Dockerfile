@@ -13,7 +13,8 @@ ENV LC_ALL=C.UTF-8
 # ========================================
 RUN apt-get update && apt-get install -y \
     curl gnupg2 lsb-release sudo git \
-    build-essential cmake python3-pip nano dos2unix
+    build-essential cmake python3-pip nano dos2unix \
+    software-properties-common
 
 # ========================================
 #  ROS Noetic Repo & Installation
@@ -32,10 +33,16 @@ RUN apt-get install -y python3-catkin-tools python3-rosdep && \
 # ========================================
 # Gazebo + ROS integration
 # ========================================
-RUN apt-get update && apt-get install -y \
+RUN add-apt-repository -y ppa:kisak/kisak-mesa && \
+    apt-get update && apt-get install -y \
     gazebo11 \
     ros-noetic-gazebo-ros-pkgs \
-    ros-noetic-gazebo-ros-control
+    ros-noetic-gazebo-ros-control \
+    libgl1-mesa-dri \
+    libegl1-mesa \
+    libglx-mesa0 \
+    mesa-vulkan-drivers \
+    mesa-utils
 
 # ========================================
 # Misc Dependencies

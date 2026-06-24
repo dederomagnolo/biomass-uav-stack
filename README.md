@@ -65,30 +65,31 @@ First make sure the repo has been cloned under your WSL files. From repo root bu
 docker build -t biomass-uav-stack .
 ``
 
-### 3. Start your container 
+### 3. Start your container
 
-1. For first time, run:
+Use Docker Compose from the repo root:
+
 ```
-docker run -it \
-  --name biomass-uav-stack \
-  --env DISPLAY="$DISPLAY" \
-  --env WAYLAND_DISPLAY="$WAYLAND_DISPLAY" \
-  --env XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" \
-  --volume /tmp/.X11-unix:/tmp/.X11-unix \
-  --device /dev/dxg \
-  -v "$(pwd)/simulation-ws:/root/biomass-uav-ws" \
-  biomass-uav-stack
+docker compose up -d --build
 ```
 
-2. When container exists:
+Enter the container with:
 
-`docker start biomass-uav-stack`
+```
+docker exec -it biomass-uav-stack bash
+```
 
-`docker exec -it biomass-uav-stack bash`
+To stop it:
+
+```
+docker compose down
+```
+
+The GPU, WSLg mounts, display variables, and workspace bind are already defined in [compose.yaml](./compose.yaml). By default, it mounts `tree-ws` into `/root/biomass-uav-ws`.
 
 ### 4. Building
 
-- You will land on `biomass-uav-ws` folder. This folder contains the content from `simulation-ws` repo folder.
+- You will land on `biomass-uav-ws` folder. With the default `compose.yaml`, this folder is a bind mount of `tree-ws`.
 - From root run `catkin build`
 - Set your build source: `source devel/setup.bash`
 
