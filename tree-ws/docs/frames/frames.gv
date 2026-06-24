@@ -1,0 +1,36 @@
+digraph G {
+"map" -> "map_ned"[label="Broadcaster: /uav1/mavros\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 364.885 sec old)\nBuffer length: 0.000 sec\n"];
+"odom" -> "odom_ned"[label="Broadcaster: /uav1/mavros\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 364.885 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "base_link_frd"[label="Broadcaster: /uav1/mavros\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 364.885 sec old)\nBuffer length: 0.000 sec\n"];
+"uav1/fcu" -> "uav1/fcu_untilted"[label="Broadcaster: /uav1/uav1_nodelet_manager\nAverage rate: 91.874 Hz\nMost recent transform: 364.874 ( 0.011 sec old)\nBuffer length: 2.449 sec\n"];
+"uav1/fcu" -> "uav1/gps_baro_origin_att_only"[label="Broadcaster: /uav1/uav1_nodelet_manager\nAverage rate: 113.377 Hz\nMost recent transform: 364.885 ( 0.000 sec old)\nBuffer length: 2.452 sec\n"];
+"uav1/fcu" -> "uav1/stable_origin"[label="Broadcaster: /uav1/uav1_nodelet_manager\nAverage rate: 99.262 Hz\nMost recent transform: 364.871 ( 0.014 sec old)\nBuffer length: 2.438 sec\n"];
+"uav1/fcu" -> "uav1/fixed_origin"[label="Broadcaster: /uav1/uav1_nodelet_manager\nAverage rate: 99.262 Hz\nMost recent transform: 364.871 ( 0.014 sec old)\nBuffer length: 2.438 sec\n"];
+"uav1/fcu" -> "uav1/os_sensor"[label="Broadcaster: /os_sensor_static_tf\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 364.885 sec old)\nBuffer length: 0.000 sec\n"];
+"uav1/fcu" -> "uav1/rtk_antenna"[label="Broadcaster: /uav1/fcu_to_rtk_antenna\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 364.885 sec old)\nBuffer length: 0.000 sec\n"];
+"uav1/fcu_untilted" -> "uav1/amsl_origin"[label="Broadcaster: /uav1/uav1_nodelet_manager\nAverage rate: 41.233 Hz\nMost recent transform: 364.849 ( 0.036 sec old)\nBuffer length: 2.401 sec\n"];
+"uav1/fcu" -> "uav1/gps_baro_origin"[label="Broadcaster: /uav1/uav1_nodelet_manager\nAverage rate: 90.238 Hz\nMost recent transform: 364.871 ( 0.014 sec old)\nBuffer length: 2.438 sec\n"];
+"uav1/fcu" -> "uav1/utm_origin"[label="Broadcaster: /uav1/uav1_nodelet_manager\nAverage rate: 90.238 Hz\nMost recent transform: 364.871 ( 0.014 sec old)\nBuffer length: 2.438 sec\n"];
+"uav1/fcu" -> "uav1/world_origin"[label="Broadcaster: /uav1/uav1_nodelet_manager\nAverage rate: 90.238 Hz\nMost recent transform: 364.871 ( 0.014 sec old)\nBuffer length: 2.438 sec\n"];
+"uav1/fcu" -> "uav1/fcu/uav_marker"[label="Broadcaster: /uav1/tf_published_uav_marker_link\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 364.885 sec old)\nBuffer length: 0.000 sec\n"];
+"uav1/fcu" -> "uav1/fcu/arms_red"[label="Broadcaster: /uav1/tf_published_arms_red_link\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 364.885 sec old)\nBuffer length: 0.000 sec\n"];
+"uav1/fcu" -> "uav1/fcu/arms"[label="Broadcaster: /uav1/tf_published_arms_link\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 364.885 sec old)\nBuffer length: 0.000 sec\n"];
+"uav1/fixed_origin" -> "uav1/local_origin"[label="Broadcaster: /uav1/uav1_nodelet_manager\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 364.885 sec old)\nBuffer length: 0.000 sec\n"];
+"uav1/fcu" -> "uav1/fcu/props"[label="Broadcaster: /uav1/tf_published_props_link\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 364.885 sec old)\nBuffer length: 0.000 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 364.885"[ shape=plaintext ] ;
+ }->"map";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 364.885"[ shape=plaintext ] ;
+ }->"odom";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 364.885"[ shape=plaintext ] ;
+ }->"base_link";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 364.885"[ shape=plaintext ] ;
+ }->"uav1/fcu";
+}

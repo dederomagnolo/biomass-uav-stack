@@ -1,0 +1,6 @@
+<launch>
+  <arg name="UAV_NAME" default="$(env UAV_NAME)"/>
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="os_sensor_static_tf"
+        args="0 0 0 0 0 0 $(arg UAV_NAME)/fcu $(arg UAV_NAME)/os_sensor"/>
+</launch>

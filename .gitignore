@@ -1,7 +1,8 @@
-simulation-ws/build
-simulation-ws/devel
-simulation-ws/logs
-
-simulation-ws/.catkin_tools
 *.bag
 *.pcd
+
+*/build
+*/devel
+*/logs
+*/.catkin_tools
+*/src
