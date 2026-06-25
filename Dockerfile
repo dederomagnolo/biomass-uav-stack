@@ -13,7 +13,7 @@ ENV LC_ALL=C.UTF-8
 # ========================================
 RUN apt-get update && apt-get install -y \
     curl gnupg2 lsb-release sudo git \
-    build-essential cmake python3-pip nano dos2unix \
+    build-essential cmake python3-pip python3-sklearn nano dos2unix \
     software-properties-common
 
 # ========================================
