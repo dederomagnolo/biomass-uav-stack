@@ -14,6 +14,7 @@ ENV LC_ALL=C.UTF-8
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     curl gnupg2 lsb-release sudo git \
+    build-essential cmake \
     && rm -rf /var/lib/apt/lists/*
 
 # ========================================
@@ -32,6 +33,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-rosdep \
     python3-colcon-common-extensions \
     python3-vcstool \
+    python3-numpy \
+    python3-matplotlib \
+    python3-sklearn \
     && rm -rf /var/lib/apt/lists/*
 
 # rosdep init/update

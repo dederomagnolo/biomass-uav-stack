@@ -1,0 +1,31 @@
+services:
+  biomass_ros2:
+    build:
+      context: .
+      dockerfile: ros2-docker/Dockerfile
+    container_name: biomass-uav-stack-ros2
+    gpus: all
+    stdin_open: true
+    tty: true
+    working_dir: /root/biomass-uav-ws
+    environment:
+      DISPLAY: ":0"
+      WAYLAND_DISPLAY: "wayland-0"
+      XDG_RUNTIME_DIR: "/mnt/wslg/runtime-dir"
+      PULSE_SERVER: "unix:/mnt/wslg/PulseServer"
+      NVIDIA_VISIBLE_DEVICES: "all"
+      NVIDIA_DRIVER_CAPABILITIES: "all"
+      LD_LIBRARY_PATH: "/usr/lib/wsl/lib"
+      LIBGL_ALWAYS_SOFTWARE: "0"
+      MESA_D3D12_DEFAULT_ADAPTER_NAME: "NVIDIA"
+      QT_OPENGL: "desktop"
+      QT_XCB_GL_INTEGRATION: "xcb_glx"
+    volumes:
+      - ./ros2-ws:/root/biomass-uav-ws
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /mnt/wslg:/mnt/wslg
+      - /usr/lib/wsl/lib:/usr/lib/wsl/lib
+    devices:
+      - /dev/dxg:/dev/dxg
+    shm_size: "1gb"
+    command: sleep infinity

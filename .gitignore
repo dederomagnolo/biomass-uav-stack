@@ -6,3 +6,8 @@
 */logs
 */.catkin_tools
 */src
+*/install
+*/log
+*/analysis
+
+tree-joao-ws
