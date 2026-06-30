@@ -1,19 +1,11 @@
 # LARIS - Biomass UAV Stack
 
-This repo aims to centralize all research work done by Biomass Group students from Laris (Laboratory of Autonomous Robots & Intelligent Systems) from UFSCar. 
+This repo aims to centralize workspaces used by Biomass Group students from Laris (Laboratory of Autonomous Robots & Intelligent Systems) from UFSCar. The idea is to turn easy experimento reproduction and configuration sharing. 
 
-- simulation-ws offers a centralized simulation env using MRS UAV System. You can create your own world/models and keep it there (see section Create new world)
+- simulation-ws offers a centralized simulation env using MRS UAV System. The simulation worlds and models used by this stack are based on the `biomass-simulation-resources` package, which centralizes reusable Gazebo assets such as `worlds`, `models`, `ground_truth`, and helper scripts for forest scenarios.
 - workspace creation: each student can create and manage your own workspace extended by simulation-ws. This way you can share your developed packages to work with an unified simulation repo (see Section create workspace).
 
-The main development workspace in this repo is still ROS 1 / Noetic. A ROS 2 Jazzy container is available under [`ros2-docker/Dockerfile`](./ros2-docker/Dockerfile), but the current `tree-ws/src` packages are still Catkin/`rospy` packages and do not build with `colcon` yet.
-
-## Setup
-
-This repo contains submodules
-
-```bash
-git clone git@github.com:dederomagnolo/biomass-uav-stack.git
-```
+# Setup
 
 ## Build from Source - Ubuntu 20.04
 
@@ -92,7 +84,7 @@ The GPU, WSLg mounts, display variables, and workspace bind are already defined 
 - From root run `catkin build`
 - Set your build source: `source devel/setup.bash`
 
-## Use Docker (ROS 2 / Jazzy on Windows, experimental)
+## Use Docker (ROS 2 / Jazzy on Windows)
 
 The ROS 2 container definition lives in [`ros2-docker/Dockerfile`](./ros2-docker/Dockerfile). A matching Compose file is available at [`compose.ros2.yaml`](./compose.ros2.yaml).
 
@@ -129,38 +121,6 @@ colcon build
 source install/setup.bash
 ```
 
-If `ros2-ws/src` is empty, add or port ROS 2 packages before building.
-
-### 3. Important note about `tree-ws`
-
-The current `tree-ws` is still a ROS 1 workspace:
-
-- `tree_mapper`, `tree_mapper_click_sim`, and `biomass-simulation-resources` use `catkin`
-- Python nodes depend on `rospy`
-- Launch files are ROS 1 `.launch`
-
-Because of that, mounting `tree-ws` into the ROS 2 container is useful only for inspection or porting work. It will not build with `colcon` as-is.
-
-If you want to inspect or port `tree-ws` inside the ROS 2 container, change the bind mount in [`compose.ros2.yaml`](./compose.ros2.yaml) from:
-
-```yaml
-- ./ros2-ws:/root/biomass-uav-ws
-```
-
-to:
-
-```yaml
-- ./tree-ws:/root/biomass-uav-ws
-```
-
-but expect to port the packages first:
-
-- replace `catkin` with `ament_cmake` or `ament_python`
-- replace `rospy` with `rclpy`
-- migrate ROS 1 launch files to ROS 2 `launch.py`
-- build with `colcon`
-
-
 ## Run simulations
 
 from root: `./tmux/one_drone/start.sh`
@@ -175,11 +135,20 @@ Set gazebo_resources path before run
 
 ### Create new world
 
-- worlds should be added to `gazebo_resources/worlds`
+- The simulation worlds used in this repository are based on the `biomass-simulation-resources` package.
+- Briefly, `biomass-simulation-resources` is the package that stores reusable Gazebo assets for our forest experiments: world files, object models, ground-truth data, and support utilities for visualization and generation.
+- In this repository, you can find it under:
+  - `tree-ws/src/biomass-simulation-resources`
+  - `simulation-ws/src/biomass-simulation-resources`
+- To create a new world, use these files as the main reference:
+  - [`tree-ws/src/biomass-simulation-resources/worlds/world_template.world`](./tree-ws/src/biomass-simulation-resources/worlds/world_template.world)
+  - [`simulation-ws/scripts/generate_forest.py`](./simulation-ws/scripts/generate_forest.py)
+- As a rule:
+  - new `.world` files should be added to `biomass-simulation-resources/worlds`
+  - new Gazebo models should be added to `biomass-simulation-resources/models`
+  - if the world has reference tree positions, keep the corresponding files in `biomass-simulation-resources/ground_truth`
 
-- models should be added to `gazebo_resources/models`
-
-- functional template file with initial settings is available for insert models directly: `template.world`
+- The recommended path is to follow this README section together with the template world above. If you want a procedural example for randomized forests, use `simulation-ws/scripts/generate_forest.py` as the reference implementation.
 
 ## Troubleshooting
 

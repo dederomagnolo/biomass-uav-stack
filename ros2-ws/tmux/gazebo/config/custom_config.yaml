@@ -7,5 +7,5 @@ mrs_uav_managers:
       "ground_truth"
     ]
 
-    initial_state_estimator: "gps_baro" # will be used as the first state estimator
+    initial_state_estimator: "gps_baro" # in simulation this keeps odom_main aligned with the simulator state
     agl_height_estimator: "" # only slightly filtered height for checking min height (not used in control feedback)

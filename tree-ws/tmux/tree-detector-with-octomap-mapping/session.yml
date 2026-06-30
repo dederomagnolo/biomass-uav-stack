@@ -15,7 +15,8 @@ windows:
   - gazebo:
       layout: tiled
       panes:
-        - waitForRos; roslaunch mrs_uav_gazebo_simulation simulation.launch world_file:='$(find biomass_simulation_resources)/worlds/duas-arvores.world' gui:=true
+        # - waitForRos; roslaunch mrs_uav_gazebo_simulation simulation.launch world_file:='$(find biomass_simulation_resources)/worlds/arvores-com-ruido.world' gui:=false
+        - waitForRos; roslaunch mrs_uav_gazebo_simulation simulation.launch world_file:='$(find biomass_simulation_resources)/worlds/mrs-forest-test.world' gui:=true
         # - waitForRos; roslaunch mrs_uav_gazebo_simulation simulation.launch world_name:=forest gui:=true
         - waitForControl; gz camera -c gzclient_camera -f $UAV_NAME; history -s gz camera -c gzclient_camera -f $UAV_NAME
   - status:

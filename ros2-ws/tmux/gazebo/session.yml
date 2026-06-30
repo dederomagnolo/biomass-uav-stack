@@ -11,10 +11,11 @@ pre_window:
   - export USE_SIM_TIME="true"
   - export UAV_TYPE="x500"
   - export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+  - export GZ_SIM_SYSTEM_PLUGIN_PATH=/opt/ros/jazzy/lib${GZ_SIM_SYSTEM_PLUGIN_PATH:+:$GZ_SIM_SYSTEM_PLUGIN_PATH}
   - export RES_PKG=`ros2 pkg prefix biomass_simulation_resources`/share/biomass_simulation_resources
   - export GZ_SIM_RESOURCE_PATH=$RES_PKG:$RES_PKG/models:$RES_PKG/models/forest-gen-models:$RES_PKG/worlds
   - export PLATFORM_CONFIG=`ros2 pkg prefix mrs_uav_gazebo_simulator`/share/mrs_uav_gazebo_simulator/config/mrs_uav_system/$UAV_TYPE.yaml
-  - export WORLD_FILE=$RES_PKG/worlds/mrs-small-forest-test.world
+  - export WORLD_FILE=$RES_PKG/worlds/forest_small_random_10min.world
 windows:
   - router:
       layout: tiled
