@@ -125,30 +125,18 @@ source install/setup.bash
 
 from root: `./tmux/one_drone/start.sh`
 
-### Run simple launch file to test/edit
-
-Set gazebo_resources path before run
-
-`export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$(rospack find gazebo_resources)/models`
-
-`roslaunch mrs_uav_gazebo_simulation simulation.launch world_file:='$(find gazebo_resources)/worlds/cerrado_2.world'`
-
-### Create new world
+### Simulation worlds
 
 - The simulation worlds used in this repository are based on the `biomass-simulation-resources` package.
 - Briefly, `biomass-simulation-resources` is the package that stores reusable Gazebo assets for our forest experiments: world files, object models, ground-truth data, and support utilities for visualization and generation.
-- In this repository, you can find it under:
-  - `tree-ws/src/biomass-simulation-resources`
+- In this repository, you can find an usage example under:
   - `simulation-ws/src/biomass-simulation-resources`
 - To create a new world, use these files as the main reference:
-  - [`tree-ws/src/biomass-simulation-resources/worlds/world_template.world`](./tree-ws/src/biomass-simulation-resources/worlds/world_template.world)
-  - [`simulation-ws/scripts/generate_forest.py`](./simulation-ws/scripts/generate_forest.py)
 - As a rule:
   - new `.world` files should be added to `biomass-simulation-resources/worlds`
   - new Gazebo models should be added to `biomass-simulation-resources/models`
-  - if the world has reference tree positions, keep the corresponding files in `biomass-simulation-resources/ground_truth`
-
-- The recommended path is to follow this README section together with the template world above. If you want a procedural example for randomized forests, use `simulation-ws/scripts/generate_forest.py` as the reference implementation.
+  - if the world has reference object positions, keep the corresponding files in `biomass-simulation-resources/ground_truth`
+- The recommended path is to follow this README section together with the template world above
 
 ## Troubleshooting
 
