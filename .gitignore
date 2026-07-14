@@ -1,13 +1,18 @@
 *.bag
 *.pcd
+*.tmp
 
 */build
 */devel
 */logs
 */.catkin_tools
-*/src
 */install
 */log
 */analysis
+*/src
+
+*/.tmp_ros_log
+*/.tmp_ros_log/
+*/.tmp_*.log
 
 tree-joao-ws

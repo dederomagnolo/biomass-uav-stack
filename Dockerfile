@@ -13,7 +13,7 @@ ENV LC_ALL=C.UTF-8
 # ========================================
 RUN apt-get update && apt-get install -y \
     curl gnupg2 lsb-release sudo git \
-    build-essential cmake python3-pip python3-sklearn nano dos2unix \
+    build-essential cmake python3-pip python3-sklearn python3-tk nano dos2unix \
     software-properties-common
 
 # ========================================
@@ -55,7 +55,10 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && sudo apt install -y \
     ros-noetic-rosbridge-server \
     ros-noetic-random-numbers \
-    ros-noetic-move-base-msgs
+    ros-noetic-move-base-msgs \
+    libspatialindex-dev
+
+RUN python3 -m pip install --no-cache-dir rtree
 
 # MAVROS deps
 RUN apt-get update && apt-get install -y geographiclib-tools
