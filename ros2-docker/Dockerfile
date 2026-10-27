@@ -13,7 +13,7 @@ ENV LC_ALL=C.UTF-8
 # ========================================
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
-    curl gnupg2 lsb-release sudo git \
+    curl gnupg2 lsb-release sudo git tmux procps \
     build-essential cmake \
     && rm -rf /var/lib/apt/lists/*
 
@@ -24,6 +24,7 @@ RUN curl -fsSL https://ctu-mrs.github.io/ppa2-stable/add_ros_ppa.sh | bash && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
       ros-jazzy-desktop-full \
+      ros-jazzy-rosbridge-server \
     && rm -rf /var/lib/apt/lists/*
 
 # ========================================
@@ -59,6 +60,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 ENV RMW_IMPLEMENTATION=rmw_zenoh_cpp
+
+# ========================================
+#  Livox SDK2 (Docker Desktop UDP binding)
+# ========================================
+COPY ros2-ws/Livox-SDK2 /tmp/Livox-SDK2
+RUN cmake -S /tmp/Livox-SDK2 -B /tmp/livox-sdk2-docker-build -DCMAKE_BUILD_TYPE=Release && \
+    cmake --build /tmp/livox-sdk2-docker-build -j"$(nproc)" && \
+    cmake --install /tmp/livox-sdk2-docker-build && \
+    ldconfig && \
+    rm -rf /tmp/Livox-SDK2 /tmp/livox-sdk2-docker-build
 
 # ========================================
 #  Env configs + workspace skeleton
