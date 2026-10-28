@@ -24,6 +24,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # ========================================
+#  Node.js 22 + npm (Tree Mapper web app; Vite requires Node >= 22.12)
+# ========================================
+RUN curl --retry 4 --retry-all-errors -fsSL https://deb.nodesource.com/setup_22.x \
+      -o /tmp/nodesource_setup.sh && \
+    bash /tmp/nodesource_setup.sh && \
+    apt-get install -y --no-install-recommends nodejs && \
+    node --version && npm --version && \
+    rm -f /tmp/nodesource_setup.sh && \
+    rm -rf /var/lib/apt/lists/*
+
+# ========================================
 #  ROS 2 Jazzy Installation
 #  (repositorio oficial do ROS 2; e o mesmo que o add_ros_ppa.sh do MRS configurava)
 # ========================================
