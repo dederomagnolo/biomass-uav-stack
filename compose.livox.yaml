@@ -1,0 +1,30 @@
+services:
+  biomass_livox:
+    build:
+      context: .
+      dockerfile: ros2-docker/Dockerfile.fastlio
+    # "image" fixa o nome: o "up" reaproveita a imagem pronta; so reconstroi com --build
+    image: biomass-uav-stack-biomass_livox
+    container_name: biomass-uav-stack-livox
+    # O SDK do Livox recebe o MID-360 por UDP em 192.168.1.50, um IP da porta Ethernet do host:
+    # precisa da rede do host (mapear portas nao basta). Com ela, 8080/9090 ja ficam expostas.
+    network_mode: host
+    stdin_open: true
+    tty: true
+    working_dir: /root/biomass-uav-ws
+    environment:
+      DISPLAY: ":1"                   # tela da Jetson, mesmo subindo por SSH
+      XDG_RUNTIME_DIR: /tmp
+      LIBGL_ALWAYS_SOFTWARE: "0"
+      QT_XCB_GL_INTEGRATION: "xcb"
+      QT_X11_NO_MITSHM: "1"
+    volumes:
+      - ./livox-ws:/root/biomass-uav-ws
+      - ./scripts:/root/biomass-uav-scripts:ro
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+    shm_size: "1gb"
+    # init: um init minimo como PID 1 recolhe processos orfaos (o sleep infinity sozinho deixa zumbis)
+    init: true
+    # sobe sozinho com a Jetson: e so entrar com "docker exec -it biomass-uav-stack-livox bash"
+    restart: unless-stopped
+    command: sleep infinity

@@ -62,10 +62,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ENV RMW_IMPLEMENTATION=rmw_zenoh_cpp
 
 # ========================================
-#  Livox SDK2 (Docker Desktop UDP binding)
+#  Livox SDK2 (build locally if present, otherwise clone the upstream repo)
 # ========================================
-COPY ros2-ws/Livox-SDK2 /tmp/Livox-SDK2
-RUN cmake -S /tmp/Livox-SDK2 -B /tmp/livox-sdk2-docker-build -DCMAKE_BUILD_TYPE=Release && \
+RUN if [ -d /tmp/Livox-SDK2 ]; then \
+        echo "Using local Livox SDK source"; \
+    else \
+        git clone --depth 1 https://github.com/Livox-SDK/Livox-SDK2.git /tmp/Livox-SDK2; \
+    fi && \
+    cmake -S /tmp/Livox-SDK2 -B /tmp/livox-sdk2-docker-build -DCMAKE_BUILD_TYPE=Release && \
     cmake --build /tmp/livox-sdk2-docker-build -j"$(nproc)" && \
     cmake --install /tmp/livox-sdk2-docker-build && \
     ldconfig && \

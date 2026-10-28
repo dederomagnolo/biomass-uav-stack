@@ -1,0 +1,127 @@
+# ========================================
+#  Copia de ros2-docker/Dockerfile para Livox MID-360 + FAST-LIO, sem o sistema MRS.
+#  O FAST_LIO e o resto do codigo ficam no workspace montado (livox-ws/src) e sao
+#  compilados dentro do conteiner; aqui ficam so as dependencias.
+#  Usado pelo compose.livox.yaml (imagem biomass-uav-stack-biomass_livox):
+#    docker compose -f compose.livox.yaml build     # so quando este arquivo mudar
+# ========================================
+#  Base: Ubuntu 24.04 (for ROS 2 Jazzy)
+# ========================================
+FROM ubuntu:24.04
+
+SHELL ["/bin/bash", "-c"]
+ENV DEBIAN_FRONTEND=noninteractive
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+# ========================================
+#  Basic dependencies
+# ========================================
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    curl gnupg2 lsb-release sudo git tmux procps \
+    build-essential cmake \
+    && rm -rf /var/lib/apt/lists/*
+
+# ========================================
+#  ROS 2 Jazzy Installation
+#  (repositorio oficial do ROS 2; e o mesmo que o add_ros_ppa.sh do MRS configurava)
+# ========================================
+RUN curl --retry 4 --retry-all-errors -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
+      -o /usr/share/keyrings/ros-archive-keyring.gpg && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" \
+      > /etc/apt/sources.list.d/ros2.list && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
+      ros-jazzy-desktop-full \
+      ros-jazzy-rosbridge-server \
+    && rm -rf /var/lib/apt/lists/*
+
+# ========================================
+#  ROS 2 build / tools
+# ========================================
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-rosdep \
+    python3-colcon-common-extensions \
+    python3-vcstool \
+    python3-numpy \
+    python3-matplotlib \
+    python3-sklearn \
+    && rm -rf /var/lib/apt/lists/*
+
+# rosdep init/update
+RUN rosdep init && rosdep update
+
+# ========================================
+#  Zenoh RMW (set as default)
+# ========================================
+# Binaries are available as ros-jazzy-rmw-zenoh-cpp
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-jazzy-rmw-zenoh-cpp \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV RMW_IMPLEMENTATION=rmw_zenoh_cpp
+
+# ========================================
+#  Livox SDK2 (build locally if present, otherwise clone the upstream repo)
+# ========================================
+RUN if [ -d /tmp/Livox-SDK2 ]; then \
+        echo "Using local Livox SDK source"; \
+    else \
+        git clone --depth 1 https://github.com/Livox-SDK/Livox-SDK2.git /tmp/Livox-SDK2; \
+    fi && \
+    cmake -S /tmp/Livox-SDK2 -B /tmp/livox-sdk2-docker-build -DCMAKE_BUILD_TYPE=Release && \
+    cmake --build /tmp/livox-sdk2-docker-build -j"$(nproc)" && \
+    cmake --install /tmp/livox-sdk2-docker-build && \
+    ldconfig && \
+    rm -rf /tmp/Livox-SDK2 /tmp/livox-sdk2-docker-build
+
+# ========================================
+#  FAST-LIO: dependencias que o ros-jazzy-desktop-full nao traz
+#  - libpython3-dev: o CMakeLists do FAST_LIO faz find_package(PythonLibs REQUIRED)
+#  - libapr1-dev: o livox_ros_driver2 procura o apr-1
+# ========================================
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libpython3-dev \
+    libapr1-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# ========================================
+#  livox_ros_driver2 (driver do MID-360; o FAST_LIO usa o CustomMsg dele)
+#  Mesmos passos do build.sh oficial para jazzy: package_ROS2.xml -> package.xml, launch_ROS2 -> launch e
+#  -DROS_EDITION=ROS2 -DDISTRO_ROS=jazzy. Fica num overlay em /opt, fora do workspace montado.
+# ========================================
+RUN git clone --depth 1 https://github.com/Livox-SDK/livox_ros_driver2.git /opt/livox_ws/src/livox_ros_driver2 && \
+    cd /opt/livox_ws/src/livox_ros_driver2 && \
+    cp -f package_ROS2.xml package.xml && \
+    cp -rf launch_ROS2/ launch/ && \
+    source /opt/ros/jazzy/setup.bash && \
+    cd /opt/livox_ws && \
+    colcon build --cmake-args -DROS_EDITION=ROS2 -DDISTRO_ROS=jazzy -DCMAKE_BUILD_TYPE=Release && \
+    rm -rf /opt/livox_ws/build /opt/livox_ws/log
+
+# ========================================
+#  terrain_modelling (DEM), GSeg3D (ground_segmentation) e tree_mapper
+#  - grid-map-core/ros: o CMakeLists do terrain_modelling; o grid-map-ros traz o grid_map_msgs,
+#    que o detector do tree_mapper importa
+#  - grid-map-rviz-plugin: display GridMap no RViz
+#  - libnanoflann-dev: a biblioteca ground_segmentation (base do ground_segmentation_ros2)
+# ========================================
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-jazzy-grid-map-core \
+    ros-jazzy-grid-map-ros \
+    ros-jazzy-grid-map-rviz-plugin \
+    libnanoflann-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# ========================================
+#  Env configs + workspace skeleton
+# ========================================
+RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc && \
+    echo "source /opt/livox_ws/install/setup.bash" >> /root/.bashrc && \
+    echo 'export RMW_IMPLEMENTATION="rmw_zenoh_cpp"' >> /root/.bashrc && \
+    mkdir -p /root/biomass-uav-ws/src && \
+    echo '[ -f /root/biomass-uav-ws/install/setup.bash ] && source /root/biomass-uav-ws/install/setup.bash' >> /root/.bashrc
+
+WORKDIR /root/biomass-uav-ws
+CMD ["bash"]

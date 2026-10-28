@@ -7,31 +7,17 @@ services:
     ports:
       - "8080:8080"
       - "9090:9090"
-      # Carries Livox UDP datagrams across Docker Desktop's Windows boundary.
-      - "47000:47000"
-    gpus: all
     stdin_open: true
     tty: true
     working_dir: /root/biomass-uav-ws
     environment:
-      DISPLAY: ":0"
-      WAYLAND_DISPLAY: "wayland-0"
-      XDG_RUNTIME_DIR: "/mnt/wslg/runtime-dir"
-      PULSE_SERVER: "unix:/mnt/wslg/PulseServer"
-      NVIDIA_VISIBLE_DEVICES: "all"
-      NVIDIA_DRIVER_CAPABILITIES: "all"
-      LD_LIBRARY_PATH: "/usr/lib/wsl/lib"
+      DISPLAY: ${DISPLAY:-:0}
+      XDG_RUNTIME_DIR: ${XDG_RUNTIME_DIR:-/tmp}
       LIBGL_ALWAYS_SOFTWARE: "0"
-      MESA_D3D12_DEFAULT_ADAPTER_NAME: "NVIDIA"
-      QT_OPENGL: "desktop"
-      QT_XCB_GL_INTEGRATION: "xcb_glx"
+      QT_XCB_GL_INTEGRATION: "xcb"
     volumes:
       - ./ros2-ws:/root/biomass-uav-ws
       - ./scripts:/root/biomass-uav-scripts:ro
-      - '\\wsl.localhost\Ubuntu-22.04\mnt\wslg\.X11-unix:/tmp/.X11-unix'
-      - '\\wsl.localhost\Ubuntu-22.04\mnt\wslg:/mnt/wslg'
-      - /usr/lib/wsl/lib:/usr/lib/wsl/lib
-    devices:
-      - /dev/dxg:/dev/dxg
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
     shm_size: "1gb"
-    command: bash -lc "python3 /root/biomass-uav-scripts/livox_tcp_bridge.py & exec sleep infinity"
+    command: bash -lc "exec sleep infinity"
