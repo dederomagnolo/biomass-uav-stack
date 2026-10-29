@@ -133,7 +133,7 @@ Com a interface web habilitada, acesse `http://localhost:8080` no host ou
 
 Para encerrar os processos da sessão:
 
-`Ctrl + B + K`
+`Ctrl + A + K`
 
 Ou
 
