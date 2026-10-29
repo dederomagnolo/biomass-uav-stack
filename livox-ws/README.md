@@ -68,13 +68,14 @@ O [Dockerfile Livox](../ros2-docker/Dockerfile.fastlio) instala Livox SDK2 e
 
 Antes de iniciar, revise [compose.livox.yaml](../compose.livox.yaml):
 
-Configure o armazenamento dos bags diretamente no `compose.livox.yaml`:
+Execute no host, a partir da raiz do repositório:
 
-- `volumes[].source`: caminho absoluto do HD ou da pasta no host, que deve existir antes de iniciar.
-- `volumes[].target`: caminho do volume dentro do container (`/mnt/pendrive`).
-- `environment.BAG_OUTPUT_DIRECTORY`: pasta de gravação dentro desse volume (`/mnt/pendrive/bags`).
+```bash
+./scripts/verify-usb.sh
+```
 
-Essas configurações não dependem de um arquivo `.env`.
+O script localiza a montagem pelo UUID e mostra os caminhos para copiar
+manualmente no `compose.livox.yaml` e no `interface_topics.yaml`.
 
 ### Configurar a rede e iniciar os sensores
 
@@ -88,7 +89,7 @@ Após configurar a rede, compilar os pacotes e instalar o SDK/wrapper da ZED,
 inicie o container **no host, a partir da raiz do repositório**:
 
 ```bash
-docker compose -f compose.livox.yaml up -d --build
+docker compose -f compose.livox.yaml up -d --force-recreate
 docker exec -it biomass-uav-stack-livox bash
 ```
 
@@ -149,12 +150,10 @@ gravação pela interface antes de desconectar o HD ou recriar o container.
 
 **Configurar o destino**
 
-Os caminhos são definidos diretamente no [compose.livox.yaml](../compose.livox.yaml),
+O volume do HD é definido no [compose.livox.yaml](../compose.livox.yaml),
 sem depender do `.env`. Trecho relevante do serviço `biomass_livox`:
 
 ```yaml
-environment:
-  BAG_OUTPUT_DIRECTORY: "/mnt/pendrive/bags"
 volumes:
   - type: bind
     source: "/media/laris/e50a717d-e7f4-4b57-84b5-09e9dca07507"
@@ -167,19 +166,26 @@ volumes:
 | --- | --- |
 | `source` | Caminho do HD montado no host. Altere este campo ao trocar de disco. |
 | `target` | Caminho em que o HD aparece dentro do container. |
-| `BAG_OUTPUT_DIRECTORY` | Pasta dentro do container em que o gravador salva os bags. |
+| `output_directory` (YAML do gravador) | Pasta dentro do container em que o gravador salva os bags. |
 
 Nesse exemplo, `/mnt/pendrive/bags` no container corresponde a
 `/media/laris/e50a717d-e7f4-4b57-84b5-09e9dca07507/bags` no host.
-Se mudar o `target`, ajuste também `BAG_OUTPUT_DIRECTORY` para apontar para
+Se mudar o `target`, ajuste também `output_directory` para apontar para
 uma pasta dentro dele.
 
-Mantenha `output_directory: ""` em
-`src/tree-mapper/config/interface_topics.yaml` para usar o destino do Compose.
-Um valor não vazio nesse parâmetro tem prioridade sobre `BAG_OUTPUT_DIRECTORY`.
-Sem ambos, o gravador usa `bags` na raiz do pacote tree-mapper; caminhos
-relativos também são resolvidos a partir dessa raiz. Alterações nesse parâmetro
-exigem reiniciar o processo do gravador.
+Defina o destino em `src/tree-mapper/config/interface_topics.yaml`:
+
+```yaml
+field_bag_recorder:
+  ros__parameters:
+    output_directory: "/mnt/pendrive/bags"
+```
+
+O gravador usa apenas esse parâmetro para configurar o destino, sem consultar
+variáveis de ambiente. Se ele estiver vazio ou ausente, usa `bags` na raiz do
+pacote tree-mapper; caminhos relativos também são resolvidos a partir dessa
+raiz. Alterações nesse parâmetro exigem reiniciar o processo do gravador,
+sem recriar o container.
 
 **Verificar o HD no host**
 
@@ -200,7 +206,7 @@ caminho inexistente, mas não verifica se há um disco montado nele.
 
 **Aplicar alterações e testar**
 
-Alterações nos volumes ou em `BAG_OUTPUT_DIRECTORY` no Compose exigem recriar
+Alterações nos volumes do Compose exigem recriar
 o container; editar o arquivo não modifica o container em execução. Depois de
 parar a gravação, execute no host, na raiz do repositório:
 
@@ -225,3 +231,19 @@ docker exec biomass-uav-stack-livox sh -c '
 
 Inicie uma gravação curta pela interface e pare-a. Confira se a pasta
 `coleta_<timestamp>` foi criada em `bags` no HD antes de iniciar a coleta.
+
+### Jetson como webserver
+
+Para os experimentos de campo, antes de subir o container, podemos utilizar a Jetson como Access Point, permitindo o acesso do webapp pelo IP, ao se conectar com a rede.
+
+Para iniciar o modo AP:
+
+`nmcli device wifi hotspot ssid harpia-jetson password ufscarlinda`
+
+Desligar access point
+
+`nmcli connection down Hotspot`
+
+Para acessar a página, acessar o IP:
+
+172.17.0.1:8080
